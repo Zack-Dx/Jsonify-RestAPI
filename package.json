@@ -1,0 +1,25 @@
+{
+    "name": "postify_api",
+    "version": "1.0.0",
+    "description": "",
+    "type": "module",
+    "main": "src/index.js",
+    "scripts": {
+        "start": "node src/index.js",
+        "format:check": "prettier ./src --check",
+        "format:fix": "prettier ./src --write",
+        "prepare": "husky install"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "prettier ./src --write . && git add -A ."
+        }
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "prettier": "3.0.3",
+        "husky": "^8.0.0"
+    }
+}
