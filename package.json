@@ -6,13 +6,18 @@
     "main": "src/index.js",
     "scripts": {
         "start": "node src/index.js",
-        "format:check": "prettier ./src --check",
-        "format:fix": "prettier ./src --write"
-    },
+        "check-format": "prettier ./src --check",
+        "fix-format": "prettier ./src --write",
+        "lint-code": "npx eslint ./src",
+        "fix-lint": "npx eslint ./src --fix",
+        "lint-format": "npm run fix-lint && npm run fix-format"
+      },      
     "keywords": [],
     "author": "",
     "license": "ISC",
     "devDependencies": {
+        "eslint": "^8.50.0",
+        "eslint-config-airbnb-base": "^15.0.0",
         "prettier": "3.0.3"
     }
 }
