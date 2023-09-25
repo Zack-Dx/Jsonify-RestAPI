@@ -1,16 +1,40 @@
 {
     "env": {
-        "browser": true,
+        "node": true,
         "es2021": true
     },
-    "extends": ["airbnb-base","prettier"],
+    "root": true,
+    "extends": ["eslint:recommended", "prettier"],
     "parserOptions": {
-        "ecmaVersion": "latest",
+        "ecmaVersion": 2021,
         "sourceType": "module"
     },
+    "plugins": ["import"],
     "rules": {
-        "no-var":"warn",
-        "no-console":"off",
-        "func-names":"off"
+        "no-var": "error",
+        "no-console": "off",
+        "no-duplicate-imports": "error",
+        "arrow-spacing": "warn",
+        "camelcase": "warn",
+        "semi-style": ["error", "last"],
+        "require-await": "warn",
+        "prefer-rest-params": "warn",
+        "no-with": "error",
+        "no-undef-init": "error",
+        "no-caller": "error",
+        "space-before-function-paren": ["warn", "always"],
+        "no-eval": "error",
+        "no-useless-return": "error",
+        "no-redeclare": "error",
+        "no-unused-vars": ["error", { "vars": "all", "args": "none", "ignoreRestSiblings": false }],
+        "no-prototype-builtins": "error",
+        "no-template-curly-in-string": "error",
+        "prefer-const": "warn",
+        "no-new-wrappers": "error",
+        "no-self-compare": "error",
+        "prefer-arrow-callback": "warn",
+        "prefer-destructuring": ["warn", { "object": true, "array": false }],
+        "prefer-template": "warn",
+        "import/newline-after-import": "error"
     }
 }
