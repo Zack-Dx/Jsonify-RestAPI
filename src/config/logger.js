@@ -1,9 +1,10 @@
+import Config from './index.js';
 import winston from 'winston';
 
 const logger = new winston.createLogger({
     level: 'info',
     defaultMeta: {
-        appName: 'postify_api',
+        appName: Config.APP_NAME,
     },
     transports: [
         new winston.transports.File({

@@ -1,11 +1,13 @@
 import app from './app.js';
 import Config from './config/index.js';
 import logger from './config/logger.js';
+import connectDB from './config/db/index.js';
 
 const { PORT } = Config;
 
-function startServer () {
+async function startServer () {
     try {
+        await connectDB();
         app.listen(PORT, () => {
             logger.info(`Listening on port ${PORT}`);
         });
