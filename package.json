@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "description": "",
     "type": "module",
-    "main": "src/index.js",
+    "main": "src/server.js",
     "scripts": {
         "dev": "nodemon src/server.js",
         "start": "node src/index.js",
