@@ -8,8 +8,22 @@ const { PORT } = Config;
 async function startServer () {
     try {
         await connectDB();
-        app.listen(PORT, () => {
+
+        // Start listening and handle errors
+        const server = app.listen(PORT, () => {
             logger.info(`Listening on port ${PORT}`);
+        });
+
+        // Error handling for EADDRINUSE
+        server.on('error', (error) => {
+            if (error.code === 'EADDRINUSE') {
+                logger.error(
+                    `Port ${PORT} is already in use. Please choose another port.`
+                );
+            } else {
+                logger.error('An error occurred:', error);
+            }
+            setTimeout(() => process.exit(1), 1000);
         });
     } catch (err) {
         if (err instanceof Error) {
