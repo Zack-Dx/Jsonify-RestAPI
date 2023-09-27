@@ -1,7 +1,7 @@
 {
-    "name": "postify_api",
+    "name": "taste_teaser_api",
     "version": "1.0.0",
-    "description": "",
+    "description": "A mock API for restaurant data, providing a tantalizing glimpse into the world of flavors and cuisines.",
     "type": "module",
     "main": "src/server.js",
     "scripts": {
@@ -13,9 +13,22 @@
         "lint:fix": "npx eslint ./src --fix",
         "fix:all": "npm run format:fix && npm run lint:fix"
     },
-    "keywords": [],
+    "keywords": [
+        "node",
+        "express",
+        "RESTful",
+        "rest-api",
+        "restaurant",
+        "food",
+        "cuisine",
+        "mock API",
+        "flavors",
+        "dining",
+        "menu",
+        "taste"
+    ],
     "author": "Zack",
-    "license": "ISC",
+    "license": "MIT",
     "devDependencies": {
         "eslint": "^8.50.0",
         "eslint-config-prettier": "^9.0.0",
