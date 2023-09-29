@@ -1,6 +1,6 @@
 import app from './app.js';
 import Config from './config/index.js';
-import logger from './config/logger.js';
+import logger from './config/logger/logger.js';
 import connectDB from './config/db/index.js';
 
 const { PORT } = Config;
@@ -8,8 +8,6 @@ const { PORT } = Config;
 async function startServer () {
     try {
         await connectDB();
-
-        // Start listening and handle errors
         const server = app.listen(PORT, () => {
             logger.info(`Listening on port ${PORT}`);
         });
