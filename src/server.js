@@ -1,6 +1,6 @@
 import app from './app.js';
 import Config from './config/index.js';
-import logger from './config/logger/logger.js';
+import logger from './config/logger/index.js';
 import connectDB from './config/db/index.js';
 
 const { PORT } = Config;
