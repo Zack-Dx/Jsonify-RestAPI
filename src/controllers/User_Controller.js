@@ -3,7 +3,6 @@ import { asyncHandler } from "../utils/asyncHandler.js"
 import { ApiError } from "../utils/ApiError.js"
 import { Devs } from "../models/developer_model.js"
 import { ApiResponse } from "../utils/ApiResponse.js"
-// import { ApiResponse } from '../utils/ApiResponse.js';
 
 export const listUsers = asyncHandler(async (req, res) => {
   const users = await Devs.find()
