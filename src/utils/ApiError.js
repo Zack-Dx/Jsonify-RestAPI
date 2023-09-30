@@ -3,7 +3,7 @@
  * The {@link errorHandler} middleware will catch this error at the central place and it will return an appropriate response to the client.
  */
 
-class ApiError extends Error {
+export class ApiError extends Error {
   /**
    *
    * @param {number} statusCode
@@ -26,5 +26,3 @@ class ApiError extends Error {
     }
   }
 }
-
-export { ApiError }

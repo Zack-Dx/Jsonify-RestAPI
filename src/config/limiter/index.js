@@ -1,8 +1,8 @@
 import { rateLimit } from "express-rate-limit"
-import { ApiError } from "../utils/ApiError.js"
+import { ApiError } from "../../utils/ApiError.js"
 
 // Rate limiter to avoid misuse of the service and avoid cost spikes
-const limiter = rateLimit({
+export const rateLimiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
   max: 500, // Limit each IP to 500 requests per `window` (here, per 15 minutes)
   standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
@@ -16,5 +16,3 @@ const limiter = rateLimit({
     )
   },
 })
-
-export default limiter

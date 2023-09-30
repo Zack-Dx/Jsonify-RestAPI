@@ -3,6 +3,4 @@ import { asyncHandler } from "../utils/asyncHandler.js"
 // import { ApiError } from '../utils/ApiError.js';
 // import { ApiResponse } from '../utils/ApiResponse.js';
 
-const getAllUsers = asyncHandler(async (req, res, next) => {})
-
-export { getAllUsers }
+export const getAllUsers = asyncHandler(async (req, res, next) => {})

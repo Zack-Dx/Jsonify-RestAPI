@@ -1,4 +1,4 @@
-const ApiResponse = class {
+export const ApiResponse = class {
   constructor (statusCode, data, message = "Success") {
     this.statusCode = statusCode
     this.data = data
@@ -6,5 +6,3 @@ const ApiResponse = class {
     this.success = statusCode < 400
   }
 }
-
-export { ApiResponse }
