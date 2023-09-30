@@ -7,6 +7,8 @@ const Config = {
     MONGODB_URI: process.env.MONGODB_URI,
     NODE_ENV: process.env.NODE_ENV,
     CORS_ORIGIN: process.env.CORS_ORIGIN,
+    REDIS_PORT: process.env.REDIS_PORT,
+    REDIS_HOST: process.env.REDIS_HOST,
 };
 
 export default Config;
