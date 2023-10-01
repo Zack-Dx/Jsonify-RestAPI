@@ -1,7 +1,7 @@
 {
-  "name": "devfolly_api",
+  "name": "jsonify_api",
   "version": "1.0.0",
-  "description": "DevFolly API - A RESTful mock API for developers' data.",
+  "description": "Jsonify API - A free RESTful mock data API for developers. Generate and access mock data easily",
   "type": "module",
   "main": "src/server.js",
   "scripts": {
@@ -24,10 +24,17 @@
     "web service",
     "JSON API",
     "backend",
-    "middleware"
+    "middleware",
+    "mock data",
+    "developer tools",
+    "sample data",
+    "sandbox data",
+    "dummy data",
+    "test data",
+    "fake data"
   ],
   "author": "Zack",
-  "license": "MIT",
+  "license": "AGPLv3",
   "devDependencies": {
     "eslint": "^8.50.0",
     "eslint-config-prettier": "^9.0.0",
