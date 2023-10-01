@@ -5,7 +5,7 @@ import connectDB from "./config/db/index.js"
 
 const { PORT } = Config
 
-async function startServer () {
+async function startServer() {
   try {
     await connectDB()
     const server = app.listen(PORT, () => {
