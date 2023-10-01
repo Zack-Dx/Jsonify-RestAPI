@@ -12,7 +12,7 @@ export class ApiError extends Error {
    * @param {string} stack
    */
 
-  constructor(statusCode, message, errors = [], stack) {
+  constructor (statusCode, message, errors = [], stack) {
     super(message)
     this.statusCode = statusCode
     this.data = null
