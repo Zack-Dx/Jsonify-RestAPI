@@ -40,7 +40,6 @@ export const createUser = asyncHandler(async (req, res) => {
     skills,
     experience,
     githubProfile,
-    linkedinProfile,
   } = req.body
   if (
     !name ||
@@ -50,20 +49,13 @@ export const createUser = asyncHandler(async (req, res) => {
     !location ||
     !skills ||
     !experience ||
-    !githubProfile ||
-    !linkedinProfile
+    !githubProfile
   ) {
     throw new ApiError(400, "Missing required fields")
   }
 
   const userExists = await Devs.findOne({
-    $or: [
-      { name },
-      { email },
-      { avatarUrl },
-      { githubProfile },
-      { linkedinProfile },
-    ],
+    $or: [{ name }, { email }, { avatarUrl }, { githubProfile }],
   })
 
   if (userExists) {
@@ -81,7 +73,6 @@ export const createUser = asyncHandler(async (req, res) => {
     skills,
     experience,
     githubProfile,
-    linkedinProfile,
   })
   return res
     .status(201)

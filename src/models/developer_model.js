@@ -79,24 +79,13 @@ const developerSchema = new Schema(
         message: "Invalid GitHub profile URL format",
       },
     },
-    linkedinProfile: {
-      type: String,
-      required: true,
-      unique: true,
-      validate: {
-        validator: (value) => {
-          return validator.isURL(value)
-        },
-        message: "Invalid LinkedIn profile URL format",
-      },
-    },
   },
   { timestamps: true }
 )
 
 // Creating a compound index on the fields used in the $or query
 developerSchema.index(
-  { name: 1, email: 1, avatarUrl: 1, githubProfile: 1, linkedinProfile: 1 },
+  { name: 1, email: 1, avatarUrl: 1, githubProfile: 1 },
   { unique: true } // Ensure uniqueness across these fields
 )
 
