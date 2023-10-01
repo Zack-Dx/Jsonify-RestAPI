@@ -20,11 +20,8 @@ export const listUsers = asyncHandler(async (req, res) => {
       )
   }
   const users = await Devs.find()
-  await redisClient.setex(
-    `${cachePrefix} all`,
-    Config.REDIS_TTL,
-    JSON.stringify(users)
-  )
+  await redisClient.set(`${cachePrefix} all`, JSON.stringify(users))
+  await redisClient.expire(`${cachePrefix} all`, Config.REDIS_TTL)
   return res
     .status(200)
     .json(new ApiResponse(200, users, "Users fetched successfully"))
