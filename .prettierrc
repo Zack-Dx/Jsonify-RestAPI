@@ -1,8 +1,19 @@
 {
-    "printWidth": 80,
-    "tabWidth": 4,
-    "singleQuote": true,
-    "bracketSpacing": true,
-    "trailingComma": "es5",
-    "semi": true
+  "arrowParens": "always",
+  "bracketSpacing": true,
+  "endOfLine": "lf",
+  "printWidth": 80,
+  "semi": false,
+  "singleQuote": false,
+  "tabWidth": 2,
+  "trailingComma": "es5",
+  "useTabs": false,
+  "overrides": [
+    {
+      "files": "src/content/**/*.md",
+      "options": {
+        "semi": true
+      }
+    }
+  ]
 }

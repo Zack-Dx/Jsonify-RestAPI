@@ -1,9 +1,29 @@
-import { config } from 'dotenv';
+import { config } from "dotenv"
 
-config();
+config()
+
+const {
+  APP_NAME,
+  PORT,
+  MONGODB_URI,
+  NODE_ENV,
+  CORS_ORIGIN,
+  REDIS_PORT,
+  REDIS_AUTH,
+  REDIS_HOST,
+  REDIS_TTL,
+} = process.env
+
 const Config = {
-    PORT: process.env.PORT,
-    MONGO_DB_URI: process.env.MONGO_DB_URI,
-};
+  APP_NAME,
+  PORT,
+  MONGODB_URI,
+  NODE_ENV,
+  CORS_ORIGIN,
+  REDIS_PORT,
+  REDIS_HOST,
+  REDIS_AUTH,
+  REDIS_TTL,
+}
 
-export default Config;
+export default Config

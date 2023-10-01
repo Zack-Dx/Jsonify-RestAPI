@@ -14,7 +14,6 @@
         "no-var": "error",
         "no-console": "off",
         "no-duplicate-imports": "error",
-        "arrow-spacing": "warn",
         "camelcase": "warn",
         "semi-style": ["error", "last"],
         "require-await": "warn",
