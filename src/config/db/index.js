@@ -4,9 +4,7 @@ import logger from "../logger/index.js"
 
 const connectDB = async () => {
   try {
-    const connectionInstance = await mongoose.connect(
-      `${Config.MONGODB_URI}/${Config.DB_NAME}`
-    )
+    const connectionInstance = await mongoose.connect(`${Config.MONGODB_URI}`)
     logger.info(
       `☘️  MongoDB Connected! DB Host: ${connectionInstance.connection.host}`
     )
