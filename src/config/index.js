@@ -9,6 +9,7 @@ const {
   NODE_ENV,
   CORS_ORIGIN,
   REDIS_PORT,
+  REDIS_AUTH,
   REDIS_HOST,
   REDIS_TTL,
 } = process.env
@@ -21,6 +22,7 @@ const Config = {
   CORS_ORIGIN,
   REDIS_PORT,
   REDIS_HOST,
+  REDIS_AUTH,
   REDIS_TTL,
 }
 
