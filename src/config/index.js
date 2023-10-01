@@ -11,6 +11,7 @@ const {
   CORS_ORIGIN,
   REDIS_PORT,
   REDIS_HOST,
+  REDIS_TTL,
 } = process.env
 
 const Config = {
@@ -22,6 +23,7 @@ const Config = {
   CORS_ORIGIN,
   REDIS_PORT,
   REDIS_HOST,
+  REDIS_TTL,
 }
 
 export default Config
