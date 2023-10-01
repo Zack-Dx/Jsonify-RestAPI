@@ -8,7 +8,7 @@ import { rateLimiter } from "./config/limiter/index.js"
 const app = express()
 
 // Global Middlewares
-app.set("trust proxy", true)
+app.set("trust proxy", 1)
 app.use(
   cors({
     origin: Config.CORS_ORIGIN,
