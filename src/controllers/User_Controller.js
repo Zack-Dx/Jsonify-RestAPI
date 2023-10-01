@@ -68,3 +68,19 @@ export const createUser = asyncHandler(async (req, res) => {
     .status(201)
     .json(new ApiResponse(201, user, "Information submitted successfully"))
 })
+
+export const findUserById = asyncHandler(async (req, res) => {
+  const userId = req.params.id
+  if (!userId.match(/^[0-9a-fA-F]{24}$/)) {
+    throw new ApiError(400, null, "Invalid user ID Format")
+  }
+
+  const user = await Devs.findById(userId)
+  if (!user) {
+    console.log("Triggerd")
+    throw new ApiError(404, "User not found")
+  }
+  return res
+    .status(200)
+    .json(new ApiResponse(200, user, "User fetched successfully"))
+})

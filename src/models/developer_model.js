@@ -94,4 +94,10 @@ const developerSchema = new Schema(
   { timestamps: true }
 )
 
+// Creating a compound index on the fields used in the $or query
+developerSchema.index(
+  { name: 1, email: 1, avatarUrl: 1, githubProfile: 1, linkedinProfile: 1 },
+  { unique: true } // Ensure uniqueness across these fields
+)
+
 export const Devs = mongoose.model("Devs", developerSchema)
