@@ -1,6 +1,6 @@
 {
   "name": "jsonify_api",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "Jsonify API - A free RESTful mock data API for developers. Generate and access mock data easily",
   "type": "module",
   "main": "src/server.js",

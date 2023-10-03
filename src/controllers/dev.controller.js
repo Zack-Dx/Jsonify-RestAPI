@@ -5,6 +5,8 @@ import { ApiError } from "../utils/ApiError.js"
 import { Devs } from "../models/developer.model.js"
 import { ApiResponse } from "../utils/ApiResponse.js"
 
+const { REDIS_TTL } = Config
+
 export const listUsers = asyncHandler(async (req, res) => {
   const cachePrefix = "users:"
   const cachedValue = await redisClient.get(`${cachePrefix} all`)
@@ -21,7 +23,7 @@ export const listUsers = asyncHandler(async (req, res) => {
   }
   const users = await Devs.find()
   await redisClient.set(`${cachePrefix} all`, JSON.stringify(users))
-  await redisClient.expire(`${cachePrefix} all`, Config.REDIS_TTL)
+  await redisClient.expire(`${cachePrefix} all`, REDIS_TTL)
   return res
     .status(200)
     .json(new ApiResponse(200, users, "Users fetched successfully"))
@@ -95,7 +97,7 @@ export const findUserById = asyncHandler(async (req, res) => {
     throw new ApiError(404, "User not found")
   }
   await redisClient.set(`user:${userId}`, JSON.stringify(user))
-  await redisClient.expire(`user:${userId}`, Config.REDIS_TTL)
+  await redisClient.expire(`user:${userId}`, REDIS_TTL)
   return res
     .status(200)
     .json(new ApiResponse(200, user, "User fetched successfully"))

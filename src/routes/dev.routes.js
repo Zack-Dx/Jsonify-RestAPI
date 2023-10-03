@@ -5,10 +5,10 @@ import {
   findUserById,
 } from "../controllers/dev.controller.js"
 
-const router = Router()
+const devRouter = Router()
 
-router.route("/users").get(listUsers).post(createUser)
+devRouter.route(`/users`).get(listUsers).post(createUser)
 
-router.route("/users/:id").get(findUserById)
+devRouter.route("/users/:id").get(findUserById)
 
-export default router
+export default devRouter

@@ -1,4 +1,4 @@
-import mongoose, { Schema } from "mongoose"
+import { Schema, model } from "mongoose"
 import validator from "validator"
 
 const developerSchema = new Schema(
@@ -89,4 +89,4 @@ developerSchema.index(
   { unique: true } // Ensure uniqueness across these fields
 )
 
-export const Devs = mongoose.model("Devs", developerSchema)
+export const Devs = model("Devs", developerSchema)
