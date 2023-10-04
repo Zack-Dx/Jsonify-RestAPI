@@ -5,6 +5,7 @@ import { ApiError } from "../utils/ApiError.js"
 import { Devs } from "../models/developer/developer.model.js"
 import { ApiResponse } from "../utils/ApiResponse.js"
 import { validateMongoId } from "../utils/helper.js"
+import { devValidationSchema } from "../utils/schemaValidation.js"
 
 const { REDIS_TTL } = Config
 
@@ -56,28 +57,12 @@ export const findDevById = asyncHandler(async (req, res) => {
 })
 
 export const addDev = asyncHandler(async (req, res) => {
-  const {
-    name,
-    email,
-    avatarUrl,
-    description,
-    location,
-    skills,
-    experience,
-    githubProfile,
-  } = req.body
-  if (
-    !name ||
-    !email ||
-    !avatarUrl ||
-    !description ||
-    !location ||
-    !skills ||
-    !experience ||
-    !githubProfile
-  ) {
-    throw new ApiError(400, "Missing required fields")
+  const requestData = req.body
+  const { error, value } = devValidationSchema.validate(requestData)
+  if (error) {
+    throw new ApiError(400, null, error.details[0].message)
   }
+  const { name, email, avatarUrl, githubProfile } = value
 
   const userExists = await Devs.findOne({
     $or: [{ name }, { email }, { avatarUrl }, { githubProfile }],
@@ -89,47 +74,23 @@ export const addDev = asyncHandler(async (req, res) => {
       "User with any of the provided credentials already exists"
     )
   }
-  const user = {
-    name,
-    email,
-    avatarUrl,
-    description,
-    location,
-    skills,
-    experience,
-    githubProfile,
-  }
+
   return res
     .status(201)
-    .json(new ApiResponse(201, user, "User created successfully"))
+    .json(new ApiResponse(201, value, "User created successfully"))
 })
 
 export const editDev = asyncHandler(async (req, res) => {
   const devId = req.params.id
+  const requestData = req.body
+
   if (!validateMongoId(devId)) {
     throw new ApiError(400, "Invalid user ID Format")
   }
-  const {
-    name,
-    email,
-    avatarUrl,
-    description,
-    location,
-    skills,
-    experience,
-    githubProfile,
-  } = req.body
-  if (
-    !name ||
-    !email ||
-    !avatarUrl ||
-    !description ||
-    !location ||
-    !skills ||
-    !experience ||
-    !githubProfile
-  ) {
-    throw new ApiError(400, "Missing required fields")
+
+  const { error, value } = devValidationSchema.validate(requestData)
+  if (error) {
+    throw new ApiError(400, null, error.details[0].message)
   }
 
   const dev = await Devs.findById(devId)
@@ -137,19 +98,9 @@ export const editDev = asyncHandler(async (req, res) => {
     throw new ApiError(404, "User not found")
   }
 
-  const updatedDev = {
-    name,
-    email,
-    avatarUrl,
-    description,
-    location,
-    skills,
-    experience,
-    githubProfile,
-  }
   return res
     .status(200)
-    .json(new ApiResponse(200, updatedDev, "User updated successfully"))
+    .json(new ApiResponse(200, value, "User updated successfully"))
 })
 
 export const deleteDev = asyncHandler(async (req, res) => {
