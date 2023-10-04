@@ -4,6 +4,7 @@ import { ApiError } from "../utils/ApiError.js"
 import Config from "../config/index.js"
 import redisClient from "../config/redis/index.js"
 import { asyncHandler } from "../utils/asyncHandler.js"
+import { validateMongoId } from "../utils/helper.js"
 
 const { REDIS_TTL } = Config
 
@@ -32,8 +33,8 @@ export const listRestros = asyncHandler(async (req, res) => {
 export const findRestroById = asyncHandler(async (req, res) => {
   const cachePrefix = "restro:"
   const restroId = req.params.id
-  if (!restroId.match(/^[0-9a-fA-F]{24}$/)) {
-    throw new ApiError(400, null, "Invalid restro ID Format")
+  if (!validateMongoId(restroId)) {
+    throw new ApiError(400, "Invalid restro ID Format")
   }
   const cachedRestroData = await redisClient.get(`${cachePrefix}${restroId}`)
   if (cachedRestroData) {

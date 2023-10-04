@@ -4,6 +4,7 @@ import redisClient from "../config/redis/index.js"
 import { ApiError } from "../utils/ApiError.js"
 import { Devs } from "../models/developer/developer.model.js"
 import { ApiResponse } from "../utils/ApiResponse.js"
+import { validateMongoId } from "../utils/helper.js"
 
 const { REDIS_TTL } = Config
 
@@ -31,11 +32,11 @@ export const listDevs = asyncHandler(async (req, res) => {
 
 export const findDevById = asyncHandler(async (req, res) => {
   const cachePrefix = "user:"
-  const userId = req.params.id
-  if (!userId.match(/^[0-9a-fA-F]{24}$/)) {
-    throw new ApiError(400, null, "Invalid user ID Format")
+  const devId = req.params.id
+  if (!validateMongoId(devId)) {
+    throw new ApiError(400, "Invalid user ID Format")
   }
-  const cachedUserData = await redisClient.get(`${cachePrefix}${userId}`)
+  const cachedUserData = await redisClient.get(`${cachePrefix}${devId}`)
   if (cachedUserData) {
     const cachedUser = JSON.parse(cachedUserData)
     return res
@@ -43,15 +44,15 @@ export const findDevById = asyncHandler(async (req, res) => {
       .json(new ApiResponse(200, cachedUser, "User fetched successfully"))
   }
 
-  const user = await Devs.findById(userId)
-  if (!user) {
+  const dev = await Devs.findById(devId)
+  if (!dev) {
     throw new ApiError(404, "User not found")
   }
-  await redisClient.set(`${cachePrefix}${userId}`, JSON.stringify(user))
-  await redisClient.expire(`${cachePrefix}${userId}`, REDIS_TTL)
+  await redisClient.set(`${cachePrefix}${devId}`, JSON.stringify(dev))
+  await redisClient.expire(`${cachePrefix}${devId}`, REDIS_TTL)
   return res
     .status(200)
-    .json(new ApiResponse(200, user, "User fetched successfully"))
+    .json(new ApiResponse(200, dev, "User fetched successfully"))
 })
 
 export const addDev = asyncHandler(async (req, res) => {
@@ -101,4 +102,66 @@ export const addDev = asyncHandler(async (req, res) => {
   return res
     .status(201)
     .json(new ApiResponse(201, user, "User created successfully"))
+})
+
+export const editDev = asyncHandler(async (req, res) => {
+  const devId = req.params.id
+  if (!validateMongoId(devId)) {
+    throw new ApiError(400, "Invalid user ID Format")
+  }
+  const {
+    name,
+    email,
+    avatarUrl,
+    description,
+    location,
+    skills,
+    experience,
+    githubProfile,
+  } = req.body
+  if (
+    !name ||
+    !email ||
+    !avatarUrl ||
+    !description ||
+    !location ||
+    !skills ||
+    !experience ||
+    !githubProfile
+  ) {
+    throw new ApiError(400, "Missing required fields")
+  }
+
+  const dev = await Devs.findById(devId)
+  if (!dev) {
+    throw new ApiError(404, "User not found")
+  }
+
+  const updatedDev = {
+    name,
+    email,
+    avatarUrl,
+    description,
+    location,
+    skills,
+    experience,
+    githubProfile,
+  }
+  return res
+    .status(200)
+    .json(new ApiResponse(200, updatedDev, "User updated successfully"))
+})
+
+export const deleteDev = asyncHandler(async (req, res) => {
+  const devId = req.params.id
+  if (!validateMongoId(devId)) {
+    throw new ApiError(400, "Invalid user ID Format")
+  }
+  const deletedDev = await Devs.findById(devId)
+  if (!deletedDev) {
+    throw new ApiError(404, "User not found")
+  }
+  return res
+    .status(200)
+    .json(new ApiResponse(200, deletedDev, "User deleted successfully"))
 })
