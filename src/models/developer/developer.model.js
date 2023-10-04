@@ -86,7 +86,7 @@ const developerSchema = new Schema(
 // Creating a compound index on the fields used in the $or query
 developerSchema.index(
   { name: 1, email: 1, avatarUrl: 1, githubProfile: 1 },
-  { unique: true } // Ensure uniqueness across these fields
+  { unique: true }
 )
 
 export const Devs = model("Devs", developerSchema)

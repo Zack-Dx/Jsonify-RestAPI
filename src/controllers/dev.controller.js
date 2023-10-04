@@ -7,7 +7,7 @@ import { ApiResponse } from "../utils/ApiResponse.js"
 
 const { REDIS_TTL } = Config
 
-export const listUsers = asyncHandler(async (req, res) => {
+export const listDevs = asyncHandler(async (req, res) => {
   const cachePrefix = "users:"
   const cachedValue = await redisClient.get(`${cachePrefix} all`)
   if (cachedValue) {
@@ -29,7 +29,7 @@ export const listUsers = asyncHandler(async (req, res) => {
     .json(new ApiResponse(200, users, "Users fetched successfully"))
 })
 
-export const findUserById = asyncHandler(async (req, res) => {
+export const findDevById = asyncHandler(async (req, res) => {
   const cachePrefix = "user:"
   const userId = req.params.id
   if (!userId.match(/^[0-9a-fA-F]{24}$/)) {
@@ -54,7 +54,7 @@ export const findUserById = asyncHandler(async (req, res) => {
     .json(new ApiResponse(200, user, "User fetched successfully"))
 })
 
-export const addUser = asyncHandler(async (req, res) => {
+export const addDev = asyncHandler(async (req, res) => {
   const {
     name,
     email,

@@ -1,14 +1,10 @@
 import { Router } from "express"
-import {
-  listUsers,
-  addUser,
-  findUserById,
-} from "../controllers/dev.controller.js"
+import { listDevs, addDev, findDevById } from "../controllers/dev.controller.js"
 
 const devRouter = Router()
 
-devRouter.route(`/users`).get(listUsers).post(addUser)
+devRouter.route(`/devs`).get(listDevs).post(addDev)
 
-devRouter.route("/users/:id").get(findUserById)
+devRouter.route("/devs/:id").get(findDevById)
 
 export default devRouter
