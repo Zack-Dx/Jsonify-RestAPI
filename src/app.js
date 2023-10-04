@@ -23,6 +23,8 @@ app.use(express.urlencoded({ extended: true, limit: "16kb" }))
 // Routers
 app.use(devRouter)
 app.use(restroRouter)
+
+// Error Handler
 app.use(errorHandler)
 
 export default app
