@@ -29,7 +29,32 @@ export const listUsers = asyncHandler(async (req, res) => {
     .json(new ApiResponse(200, users, "Users fetched successfully"))
 })
 
-export const createUser = asyncHandler(async (req, res) => {
+export const findUserById = asyncHandler(async (req, res) => {
+  const cachePrefix = "user:"
+  const userId = req.params.id
+  if (!userId.match(/^[0-9a-fA-F]{24}$/)) {
+    throw new ApiError(400, null, "Invalid user ID Format")
+  }
+  const cachedUserData = await redisClient.get(`${cachePrefix}${userId}`)
+  if (cachedUserData) {
+    const cachedUser = JSON.parse(cachedUserData)
+    return res
+      .status(200)
+      .json(new ApiResponse(200, cachedUser, "User fetched successfully"))
+  }
+
+  const user = await Devs.findById(userId)
+  if (!user) {
+    throw new ApiError(404, "User not found")
+  }
+  await redisClient.set(`${cachePrefix}${userId}`, JSON.stringify(user))
+  await redisClient.expire(`${cachePrefix}${userId}`, REDIS_TTL)
+  return res
+    .status(200)
+    .json(new ApiResponse(200, user, "User fetched successfully"))
+})
+
+export const addUser = asyncHandler(async (req, res) => {
   const {
     name,
     email,
@@ -76,29 +101,4 @@ export const createUser = asyncHandler(async (req, res) => {
   return res
     .status(201)
     .json(new ApiResponse(201, user, "User created successfully"))
-})
-
-export const findUserById = asyncHandler(async (req, res) => {
-  const cachePrefix = "user:"
-  const userId = req.params.id
-  if (!userId.match(/^[0-9a-fA-F]{24}$/)) {
-    throw new ApiError(400, null, "Invalid user ID Format")
-  }
-  const cachedUserData = await redisClient.get(`${cachePrefix}${userId}`)
-  if (cachedUserData) {
-    const cachedUser = JSON.parse(cachedUserData)
-    return res
-      .status(200)
-      .json(new ApiResponse(200, cachedUser, "User fetched successfully"))
-  }
-
-  const user = await Devs.findById(userId)
-  if (!user) {
-    throw new ApiError(404, "User not found")
-  }
-  await redisClient.set(`user:${userId}`, JSON.stringify(user))
-  await redisClient.expire(`user:${userId}`, REDIS_TTL)
-  return res
-    .status(200)
-    .json(new ApiResponse(200, user, "User fetched successfully"))
 })

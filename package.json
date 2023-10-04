@@ -13,6 +13,10 @@
     "lint:fix": "npx eslint ./src --fix",
     "fix:all": "npm run format:fix && npm run lint:fix"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zack-Dx/Jsonify-RestAPI"
+  },
   "keywords": [
     "node",
     "express",
@@ -24,14 +28,16 @@
     "web service",
     "JSON API",
     "backend",
-    "middleware",
+    "api as a service",
     "mock data",
+    "public apis",
     "developer tools",
     "sample data",
     "sandbox data",
     "dummy data",
     "test data",
-    "fake data"
+    "fake data",
+    "test data"
   ],
   "author": "Zack",
   "license": "MIT",

@@ -1,13 +1,13 @@
 import { Router } from "express"
 import {
   listUsers,
-  createUser,
+  addUser,
   findUserById,
 } from "../controllers/dev.controller.js"
 
 const devRouter = Router()
 
-devRouter.route(`/users`).get(listUsers).post(createUser)
+devRouter.route(`/users`).get(listUsers).post(addUser)
 
 devRouter.route("/users/:id").get(findUserById)
 
