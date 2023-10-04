@@ -55,3 +55,19 @@ export const findRestroById = asyncHandler(async (req, res) => {
     .json(new ApiResponse(200, restro, "Restro fetched successfully"))
 })
 export const addRestro = asyncHandler((req, res) => {})
+
+export const editRestro = asyncHandler((req, res) => {})
+
+export const deleteRestro = asyncHandler(async (req, res) => {
+  const restroId = req.params.id
+  if (!validateMongoId(restroId)) {
+    throw new ApiError(400, "Invalid restro ID Format")
+  }
+  const deletedRestro = await Restro.findById(restroId)
+  if (!deletedRestro) {
+    throw new ApiError(404, "Restro not found")
+  }
+  return res
+    .status(200)
+    .json(new ApiResponse(200, deletedRestro, "Restro deleted successfully"))
+})
