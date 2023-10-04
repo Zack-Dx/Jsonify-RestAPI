@@ -4,11 +4,12 @@ import {
   listRestros,
   editRestro,
   deleteRestro,
+  addRestro,
 } from "../controllers/restro.controller.js"
 
 const restroRouter = Router()
 
-restroRouter.route("/restros").get(listRestros)
+restroRouter.route("/restros").get(listRestros).post(addRestro)
 
 restroRouter
   .route("/restros/:id")

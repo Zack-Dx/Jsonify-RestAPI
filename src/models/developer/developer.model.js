@@ -83,10 +83,4 @@ const developerSchema = new Schema(
   { timestamps: true }
 )
 
-// Creating a compound index on the fields used in the $or query
-developerSchema.index(
-  { name: 1, email: 1, avatarUrl: 1, githubProfile: 1 },
-  { unique: true }
-)
-
 export const Devs = model("Devs", developerSchema)

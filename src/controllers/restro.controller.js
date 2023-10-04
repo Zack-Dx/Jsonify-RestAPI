@@ -5,6 +5,7 @@ import Config from "../config/index.js"
 import redisClient from "../config/redis/index.js"
 import { asyncHandler } from "../utils/asyncHandler.js"
 import { validateMongoId } from "../utils/helper.js"
+import { restroValidationSchema } from "../utils/schemaValidation.js"
 
 const { REDIS_TTL } = Config
 
@@ -54,9 +55,36 @@ export const findRestroById = asyncHandler(async (req, res) => {
     .status(200)
     .json(new ApiResponse(200, restro, "Restro fetched successfully"))
 })
-export const addRestro = asyncHandler((req, res) => {})
+export const addRestro = asyncHandler(async (req, res) => {
+  const requestData = req.body
+  const { error, value } = restroValidationSchema.validate(requestData)
+  if (error) {
+    throw new ApiError(400, null, error.details[0].message)
+  }
 
-export const editRestro = asyncHandler((req, res) => {})
+  const { info } = value
+  const restroExists = await Restro.findOne({
+    $or: [{ "info.name": info.name }, { "info.imageUrl": info.imageUrl }],
+  })
+  if (restroExists) {
+    throw new ApiError(
+      409,
+      "Restro with any of the provided credentials already exists"
+    )
+  }
+  return res
+    .status(201)
+    .json(new ApiResponse(201, value, "Restro added successfully"))
+})
+
+export const editRestro = asyncHandler((req, res) => {
+  // const restroId = req.params.id
+  // const requestData = req.body
+  // const { error, value } = restroValidationSchema.validate(requestData)
+  // if (error) {
+  //   throw new ApiError(400, null, error.details[0].message)
+  // }
+})
 
 export const deleteRestro = asyncHandler(async (req, res) => {
   const restroId = req.params.id
