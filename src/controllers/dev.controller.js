@@ -26,6 +26,7 @@ export const listDevs = asyncHandler(async (req, res) => {
   const users = await Devs.find()
   await redisClient.set(`${cachePrefix} all`, JSON.stringify(users))
   await redisClient.expire(`${cachePrefix} all`, REDIS_TTL)
+
   return res
     .status(200)
     .json(new ApiResponse(200, users, "Users fetched successfully"))
@@ -51,6 +52,7 @@ export const findDevById = asyncHandler(async (req, res) => {
   }
   await redisClient.set(`${cachePrefix}${devId}`, JSON.stringify(dev))
   await redisClient.expire(`${cachePrefix}${devId}`, REDIS_TTL)
+
   return res
     .status(200)
     .json(new ApiResponse(200, dev, "User fetched successfully"))
@@ -83,16 +85,13 @@ export const addDev = asyncHandler(async (req, res) => {
 export const editDev = asyncHandler(async (req, res) => {
   const devId = req.params.id
   const requestData = req.body
-
   if (!validateMongoId(devId)) {
     throw new ApiError(400, "Invalid user ID Format")
   }
-
   const { error, value } = devValidationSchema.validate(requestData)
   if (error) {
     throw new ApiError(400, null, error.details[0].message)
   }
-
   const dev = await Devs.findById(devId)
   if (!dev) {
     throw new ApiError(404, "User not found")
@@ -112,6 +111,7 @@ export const deleteDev = asyncHandler(async (req, res) => {
   if (!deletedDev) {
     throw new ApiError(404, "User not found")
   }
+
   return res
     .status(200)
     .json(new ApiResponse(200, deletedDev, "User deleted successfully"))
