@@ -63,7 +63,7 @@ export const createUser = asyncHandler(async (req, res) => {
       "User with any of the provided credentials already exists"
     )
   }
-  const user = await Devs.create({
+  const user = {
     name,
     email,
     avatarUrl,
@@ -72,10 +72,10 @@ export const createUser = asyncHandler(async (req, res) => {
     skills,
     experience,
     githubProfile,
-  })
+  }
   return res
     .status(201)
-    .json(new ApiResponse(201, user, "Information submitted successfully"))
+    .json(new ApiResponse(201, user, "User created successfully"))
 })
 
 export const findUserById = asyncHandler(async (req, res) => {

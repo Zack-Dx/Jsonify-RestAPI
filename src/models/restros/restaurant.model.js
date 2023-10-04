@@ -1,4 +1,5 @@
 import { Schema, model } from "mongoose"
+import { menuSchema } from "./subschemas/menu.model.js"
 import validator from "validator"
 
 const restaurantSchema = new Schema({
@@ -60,7 +61,7 @@ const restaurantSchema = new Schema({
     },
   },
   menu: {
-    type: Array,
+    type: [menuSchema],
   },
 })
 
