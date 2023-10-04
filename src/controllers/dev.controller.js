@@ -2,7 +2,7 @@ import { asyncHandler } from "../utils/asyncHandler.js"
 import Config from "../config/index.js"
 import redisClient from "../config/redis/index.js"
 import { ApiError } from "../utils/ApiError.js"
-import { Devs } from "../models/developer.model.js"
+import { Devs } from "../models/developer/developer.model.js"
 import { ApiResponse } from "../utils/ApiResponse.js"
 
 const { REDIS_TTL } = Config
