@@ -1,6 +1,10 @@
-node_modules
-Dockerfile
+/node_modules
+/logs
 .dockerignore
 .git
 .gitignore
-docker-compose*
+*.md
+.env.sample
+.env
+.prettierrc
+.eslintrc.json
