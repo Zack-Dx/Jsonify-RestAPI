@@ -4,14 +4,6 @@ import validator from "validator"
 
 const restaurantSchema = new Schema({
   info: {
-    id: {
-      type: String,
-      required: true,
-      validate: {
-        validator: (value) => validator.isNumeric(value),
-        message: "Invalid id format",
-      },
-    },
     name: {
       type: String,
       required: true,

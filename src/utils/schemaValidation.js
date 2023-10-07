@@ -2,7 +2,6 @@ import Joi from "joi"
 
 export const restroValidationSchema = Joi.object({
   info: Joi.object({
-    id: Joi.string().required(),
     name: Joi.string().required(),
     imageUrl: Joi.string().uri().required(),
     locality: Joi.string(),
@@ -15,7 +14,6 @@ export const restroValidationSchema = Joi.object({
   }).required(),
   menu: Joi.array().items(
     Joi.object({
-      id: Joi.string().required(),
       name: Joi.string().required(),
       category: Joi.string().required(),
       description: Joi.string().required(),
