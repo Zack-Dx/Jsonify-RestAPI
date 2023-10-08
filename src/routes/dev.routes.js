@@ -1,14 +1,21 @@
 import { Router } from "express"
 import {
-  listUsers,
-  createUser,
-  findUserById,
+  listDevs,
+  addDev,
+  findDevById,
+  editDev,
+  deleteDev,
 } from "../controllers/dev.controller.js"
 
-const router = Router()
+const devRouter = Router()
 
-router.route("/users").get(listUsers).post(createUser)
+devRouter.route(`/devs`).get(listDevs).post(addDev)
 
-router.route("/users/:id").get(findUserById)
+devRouter
+  .route("/devs/:id")
+  .get(findDevById)
+  .put(editDev)
+  .patch(editDev)
+  .delete(deleteDev)
 
-export default router
+export default devRouter

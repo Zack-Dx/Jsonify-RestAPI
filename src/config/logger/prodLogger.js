@@ -4,6 +4,7 @@ import "winston-daily-rotate-file"
 
 const { DailyRotateFile, Console } = transports
 const { combine, timestamp, printf } = format
+const { APP_NAME, NODE_ENV } = Config
 
 const myFormat = printf(({ level, message, timestamp }) => {
   return `${timestamp} [${level}] ${message}`
@@ -13,8 +14,8 @@ const prodLogger = () => {
   return createLogger({
     level: "info",
     defaultMeta: {
-      appName: Config.APP_NAME,
-      environment: Config.NODE_ENV,
+      appName: APP_NAME,
+      environment: NODE_ENV,
     },
     transports: [
       new DailyRotateFile({

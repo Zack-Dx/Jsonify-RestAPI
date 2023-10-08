@@ -1,6 +1,6 @@
 {
   "name": "jsonify_api",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "Jsonify API - A free RESTful mock data API for developers. Generate and access mock data easily",
   "type": "module",
   "main": "src/server.js",
@@ -13,6 +13,10 @@
     "lint:fix": "npx eslint ./src --fix",
     "fix:all": "npm run format:fix && npm run lint:fix"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zack-Dx/Jsonify-RestAPI"
+  },
   "keywords": [
     "node",
     "express",
@@ -24,14 +28,16 @@
     "web service",
     "JSON API",
     "backend",
-    "middleware",
+    "api as a service",
     "mock data",
+    "public apis",
     "developer tools",
     "sample data",
     "sandbox data",
     "dummy data",
     "test data",
-    "fake data"
+    "fake data",
+    "test data"
   ],
   "author": "Zack",
   "license": "MIT",
@@ -48,6 +54,7 @@
     "express": "^4.18.2",
     "express-rate-limit": "^7.0.2",
     "ioredis": "^5.3.2",
+    "joi": "^17.11.0",
     "mongoose": "^7.5.2",
     "validator": "^13.11.0",
     "winston": "^3.10.0",

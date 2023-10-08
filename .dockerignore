@@ -1,0 +1,10 @@
+/node_modules
+/logs
+.dockerignore
+.git
+.gitignore
+*.md
+.env.sample
+.env
+.prettierrc
+.eslintrc.json
