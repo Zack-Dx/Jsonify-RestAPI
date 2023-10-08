@@ -3,7 +3,7 @@ services:
   jsonify:
     build:
       context: .
-      dockerfile: docker/Dockerfile.dev
+      dockerfile: docker/Dockerfile
     restart: always
     ports:
       - "3000:3000"

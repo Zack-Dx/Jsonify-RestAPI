@@ -11,6 +11,10 @@ const restaurantSchema = new Schema({
     imageUrl: {
       type: String,
       required: true,
+      validate: {
+        validator: (value) => validator.isURL(value),
+        message: "Invalid URL format for imageUrl",
+      },
     },
     locality: {
       type: String,

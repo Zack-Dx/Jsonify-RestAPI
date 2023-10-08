@@ -1,4 +1,5 @@
 import { Schema } from "mongoose"
+import validator from "validator"
 
 export const menuSchema = new Schema({
   name: {
@@ -16,6 +17,10 @@ export const menuSchema = new Schema({
   imageUrl: {
     type: String,
     required: true,
+    validate: {
+      validator: (value) => validator.isURL(value),
+      message: "Invalid URL format for imageUrl",
+    },
   },
   isVeg: {
     type: Boolean,
