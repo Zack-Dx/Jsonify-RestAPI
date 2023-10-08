@@ -20,7 +20,7 @@ We are trying to build a single source API hub that can be used to learn api han
 
 ### 📦 Using Docker (recommended)
 
-To run the FreeAPI project, follow these steps:
+To run the Jsonify API project, follow these steps:
 
 1. Install [Docker](https://www.docker.com/) on your machine.
 2. Clone the project repository.
