@@ -55,6 +55,19 @@ npm install
 npm run dev
 ```
 
+### Application Structure
+
+**Models:** In this directory, you'll discover all the database schemas, and you have the option to modify or enhance schemas for applications
+
+**Controllers:** Within this directory, you'll find all the API methods for performing CRUD operations, which will be executed via API URLs.
+
+**Middleware:** We've implemented error handling methods in the middleware. Any methods that should run before executing a respective controller during an API call will be defined within this directory.
+
+**Routes:** We've established the API routes within this directory, so any new route will also be defined here.
+
+**Config:** We've included third-party configurations in our application such as MongoDB, Limiter, logger, and Redis. Any additional configurations will be placed within this directory.
+
+
 🙏 Thank You!
 
 We want to express our gratitude to all the contributors and users of Jsonify. Your support and involvement in this open-source project make it what it is today. Jsonify wouldn't be possible without the community's collaboration and feedback.
