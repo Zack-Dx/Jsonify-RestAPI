@@ -57,15 +57,15 @@ npm run dev
 
 ### Application Structure
 
-**Models:** In this folder you can find all the databse schemas, You can also edit and/or update schemas for applications.
+**Models:** In this directory, you'll discover all the database schemas, and you have the option to modify or enhance schemas for applications
 
-**Controllers:** In this folder we have all the API's methods for CRUD opperations which will be executred through API url's.
+**Controllers:** Within this directory, you'll find all the API methods for performing CRUD operations, which will be executed via API URLs.
 
-**Middleware:** We have some error handling method in middleware, all the methods which need to execute on api calling before executing a respective controller will be define in this folder.
+**Middleware:** We've implemented error handling methods in the middleware. Any methods that should run before executing a respective controller during an API call will be defined within this directory.
 
-**Routes:** We have define the API's route in this folder, so any new route will be define here.
+**Routes:** We've established the API routes within this directory, so any new route will also be defined here.
 
-**Config:** We have some third party configuration in our application e.g MongoDB, Limiter, logger and redis. Any new configuration will be go in this folder
+**Config:** We've included third-party configurations in our application such as MongoDB, Limiter, logger, and Redis. Any additional configurations will be placed within this directory.
 
 
 🙏 Thank You!
