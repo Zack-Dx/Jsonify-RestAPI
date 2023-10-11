@@ -9,6 +9,16 @@ import { devValidationSchema } from "../utils/schemaValidation.js"
 
 const { REDIS_TTL } = Config
 
+/**
+ * Fetches a list of developers (Devs) and returns it as a JSON response.
+ * If the data is not cached, it is fetched from the database and stored in the cache for future use.
+ *
+ * @param {Object} req
+ * @param {Object} res
+ *
+ * @returns {Object} - An HTTP JSON response object with status and data.
+ */
+
 export const listDevs = asyncHandler(async (req, res) => {
   const cachePrefix = "users:"
   const cachedValue = await redisClient.get(`${cachePrefix} all`)
@@ -31,6 +41,17 @@ export const listDevs = asyncHandler(async (req, res) => {
     .status(200)
     .json(new ApiResponse(200, users, "Users fetched successfully"))
 })
+
+/**
+ * Fetches a developer (Dev) by their unique identifier (ID) and returns it as a JSON response.
+ *
+ * @param {Object} req
+ * @param {Object} res
+ *
+ * @throws {ApiError} - Throws an API error with the appropriate status code and message in case of invalid ID format or when the user is not found.
+ *
+ * @returns {Object} - An HTTP JSON response object with status and data, indicating success or failure.
+ */
 
 export const findDevById = asyncHandler(async (req, res) => {
   const cachePrefix = "user:"
@@ -58,6 +79,18 @@ export const findDevById = asyncHandler(async (req, res) => {
     .json(new ApiResponse(200, dev, "User fetched successfully"))
 })
 
+/**
+ * (MOCK USE)
+ * Adds a new developer (Dev) to the database with the provided data and returns a JSON response.
+ *
+ * @param {Object} req
+ * @param {Object} res
+ *
+ * @throws {ApiError} - Throws an API error with the appropriate status code and message in case of validation errors or if a user with similar credentials already exists.
+ *
+ * @returns {Object} - An HTTP JSON response object with status and data, indicating success or failure.
+ */
+
 export const addDev = asyncHandler(async (req, res) => {
   const requestData = req.body
   const { error, value } = devValidationSchema.validate(requestData)
@@ -82,6 +115,18 @@ export const addDev = asyncHandler(async (req, res) => {
     .json(new ApiResponse(201, value, "User created successfully"))
 })
 
+/**
+ * (MOCK USE)
+ * Edits an existing developer (Dev) in the database with the provided data and returns a JSON response.
+ *
+ * @param {Object} req
+ * @param {Object} res
+ *
+ * @throws {ApiError} - Throws an API error with the appropriate status code and message in case of invalid ID format, validation errors, or if the user is not found.
+ *
+ * @returns {Object} - An HTTP JSON response object with status and data, indicating success or failure.
+ */
+
 export const editDev = asyncHandler(async (req, res) => {
   const devId = req.params.id
   const requestData = req.body
@@ -101,6 +146,18 @@ export const editDev = asyncHandler(async (req, res) => {
     .status(200)
     .json(new ApiResponse(200, value, "User updated successfully"))
 })
+
+/**
+ * (MOCK USE)
+ * Deletes an existing developer (Dev) from the database based on the provided Dev ID and returns a JSON response.
+ *
+ * @param {Object} req
+ * @param {Object} res
+ *
+ * @throws {ApiError} - Throws an API error with the appropriate status code and message in case of an invalid ID format or if the user is not found.
+ *
+ * @returns {Object} - An HTTP JSON response object with status and data, indicating success or failure.
+ */
 
 export const deleteDev = asyncHandler(async (req, res) => {
   const devId = req.params.id
