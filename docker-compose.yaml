@@ -5,33 +5,47 @@ services:
       context: .
       dockerfile: docker/Dockerfile
     restart: always
+
+    # Expose ports [HOST:CONTAINER]
     ports:
       - "3000:3000"
+
+    # Service dependent on other containers to start.
     depends_on:
       - mongodb
       - redis
+
     volumes:
+      # Mounts the project directory on the host to /app inside the container,
+      # allowing you to modify the code without having to rebuild the image.
+      # node_modules from this new volume will be used and not from your local dev env.
       - ./:/usr/src/app
       - /usr/src/app/node_modules
+
+    # Set environment variables from this file
     env_file:
       - ./.env
+
   mongodb:
     image: mongo:7.0
     container_name: mongodb
+
     volumes:
       - data:/data/db
+
     ports:
       - "27017:27017"
+
   redis:
     image: redis:7.2
     container_name: cache
+
     ports:
       - "6379:6379"
+
     volumes:
       - cache:/data
 
 volumes:
   data:
   cache:
-
-

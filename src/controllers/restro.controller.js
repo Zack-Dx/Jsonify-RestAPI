@@ -9,6 +9,17 @@ import { restroValidationSchema } from "../utils/schemaValidation.js"
 
 const { REDIS_TTL } = Config
 
+/**
+ * Fetches a list of restaurants (Restros) and returns it as a JSON response.
+ *
+ * @param {Object} req
+ * @param {Object} res
+ *
+ * @throws {ApiError} - Throws an API error with the appropriate status code and message in case of any errors.
+ *
+ * @returns {Object} - An HTTP JSON response object with status and data, indicating success or failure.
+ */
+
 export const listRestros = asyncHandler(async (req, res) => {
   const cachePrefix = "restros:"
   const cachedValue = await redisClient.get(`${cachePrefix} all`)
@@ -31,6 +42,17 @@ export const listRestros = asyncHandler(async (req, res) => {
     .status(200)
     .json(new ApiResponse(200, restros, "Restros fetched successfully"))
 })
+
+/**
+ * Fetches a restaurant (Restro) by its unique identifier (ID) and returns it as a JSON response.
+ *
+ * @param {Object} req
+ * @param {Object} res
+ *
+ * @throws {ApiError} - Throws an API error with the appropriate status code and message in case of invalid ID format or when the restaurant is not found.
+ *
+ * @returns {Object} - An HTTP JSON response object with status and data, indicating success or failure.
+ */
 
 export const findRestroById = asyncHandler(async (req, res) => {
   const cachePrefix = "restro:"
@@ -57,6 +79,17 @@ export const findRestroById = asyncHandler(async (req, res) => {
     .json(new ApiResponse(200, restro, "Restro fetched successfully"))
 })
 
+/**
+ * Adds a new restaurant (Restro) to the database with the provided data and returns a JSON response.
+ *
+ * @param {Object} req
+ * @param {Object} res
+ *
+ * @throws {ApiError} - Throws an API error with the appropriate status code and message in case of validation errors or if a restaurant with similar credentials already exists.
+ *
+ * @returns {Object} - An HTTP JSON response object with status and data, indicating success or failure.
+ */
+
 export const addRestro = asyncHandler(async (req, res) => {
   const requestData = req.body
   const { error, value } = restroValidationSchema.validate(requestData)
@@ -79,6 +112,17 @@ export const addRestro = asyncHandler(async (req, res) => {
     .json(new ApiResponse(201, value, "Restro added successfully"))
 })
 
+/**
+ * Edits an existing restaurant (Restro) in the database with the provided data and returns a JSON response.
+ *
+ * @param {Object} req
+ * @param {Object} res
+ *
+ * @throws {ApiError} - Throws an API error with the appropriate status code and message in case of invalid ID format, validation errors, or if the restaurant is not found.
+ *
+ * @returns {Object} - An HTTP JSON response object with status and data, indicating success or failure.
+ */
+
 export const editRestro = asyncHandler(async (req, res) => {
   const restroId = req.params.id
   const requestData = req.body
@@ -98,6 +142,17 @@ export const editRestro = asyncHandler(async (req, res) => {
     .status(200)
     .json(new ApiResponse(200, value, "Restro details updated successfully"))
 })
+
+/**
+ * Deletes an existing restaurant (Restro) from the database based on the provided Restro ID and returns a JSON response.
+ *
+ * @param {Object} req
+ * @param {Object} res
+ *
+ * @throws {ApiError} - Throws an API error with the appropriate status code and message in case of an invalid ID format or if the restaurant is not found.
+ *
+ * @returns {Object} - An HTTP JSON response object with status and data, indicating success or failure.
+ */
 
 export const deleteRestro = asyncHandler(async (req, res) => {
   const restroId = req.params.id
