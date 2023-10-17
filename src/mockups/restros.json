@@ -1,0 +1,122 @@
+[
+    {
+      "info": "Sizzle Street Grill",
+      "imageUrl": "https://example.com/sizzlestreet.jpg",
+      "locality": "Downtown",
+      "areaName": "Flavorville",
+      "cuisines": ["Steakhouse", "Seafood", "BBQ"],
+      "avgRating": 4.8,
+      "veg": false,
+      "deliveryTime": 35,
+      "isOpen": true,
+      "menu": ["T-Bone Steak", "Grilled Lobster", "Smoked Ribs"]
+    },
+    {
+      "info": "Zen Garden Sushi",
+      "imageUrl": "https://example.com/zengarden.jpg",
+      "locality": "Midtown",
+      "areaName": "Sakura Square",
+      "cuisines": ["Japanese", "Sushi", "Ramen"],
+      "avgRating": 4.7,
+      "veg": true,
+      "deliveryTime": 40,
+      "isOpen": true,
+      "menu": ["Sashimi Platter", "Dragon Roll", "Miso Ramen"]
+    },
+    {
+      "info": "Bella Italia Trattoria",
+      "imageUrl": "https://example.com/bellaitalia.jpg",
+      "locality": "Little Italy",
+      "areaName": "Piazza del Gusto",
+      "cuisines": ["Italian", "Pizza", "Pasta"],
+      "avgRating": 4.5,
+      "veg": true,
+      "deliveryTime": 30,
+      "isOpen": true,
+      "menu": ["Margherita Pizza", "Spaghetti Carbonara", "Tiramisu"]
+    },
+    {
+      "info": "Copper Kettle Cafe",
+      "imageUrl": "https://example.com/copperkettle.jpg",
+      "locality": "Old Town",
+      "areaName": "Quaint Quarters",
+      "cuisines": ["Cafe", "Breakfast", "Bakery"],
+      "avgRating": 4.6,
+      "veg": true,
+      "deliveryTime": 25,
+      "isOpen": true,
+      "menu": ["Espresso", "Avocado Toast", "Blueberry Muffin"]
+    },
+    {
+      "info": "Taste of Thailand",
+      "imageUrl": "https://example.com/tasteofthailand.jpg",
+      "locality": "Uptown",
+      "areaName": "Bangkok Boulevard",
+      "cuisines": ["Thai", "Curry", "Noodles"],
+      "avgRating": 4.4,
+      "veg": true,
+      "deliveryTime": 45,
+      "isOpen": true,
+      "menu": ["Green Curry", "Pad Thai", "Mango Sticky Rice"]
+    },
+    {
+      "info": "Mama's Diner",
+      "imageUrl": "https://example.com/mamasdiner.jpg",
+      "locality": "Suburbia",
+      "areaName": "Nostalgia Lane",
+      "cuisines": ["American", "Burgers", "Milkshakes"],
+      "avgRating": 4.3,
+      "veg": false,
+      "deliveryTime": 35,
+      "isOpen": true,
+      "menu": ["Classic Burger", "Chili Cheese Fries", "Chocolate Shake"]
+    },
+    {
+      "info": "Spice Kingdom",
+      "imageUrl": "https://example.com/spicekingdom.jpg",
+      "locality": "Chinatown",
+      "areaName": "Szechuan Square",
+      "cuisines": ["Chinese", "Szechuan", "Dim Sum"],
+      "avgRating": 4.7,
+      "veg": true,
+      "deliveryTime": 50,
+      "isOpen": true,
+      "menu": ["Kung Pao Chicken", "Mapo Tofu", "Har Gow"]
+    },
+    {
+      "info": "The Gourmet Garden",
+      "imageUrl": "https://example.com/gourmetgarden.jpg",
+      "locality": "Garden District",
+      "areaName": "Herb Haven",
+      "cuisines": ["Mediterranean", "Salads", "Hummus"],
+      "avgRating": 4.6,
+      "veg": true,
+      "deliveryTime": 40,
+      "isOpen": true,
+      "menu": ["Greek Salad", "Falafel Wrap", "Baba Ghanoush"]
+    },
+    {
+      "info": "SunnySide Brunch House",
+      "imageUrl": "https://example.com/sunnyside.jpg",
+      "locality": "Riverside",
+      "areaName": "Morning Glory Place",
+      "cuisines": ["Brunch", "Pancakes", "Eggs"],
+      "avgRating": 4.5,
+      "veg": true,
+      "deliveryTime": 30,
+      "isOpen": true,
+      "menu": ["Blueberry Pancakes", "Eggs Benedict", "French Toast"]
+    },
+    {
+      "info": "Fusion Flavors Bistro",
+      "imageUrl": "https://example.com/fusionflavors.jpg",
+      "locality": "Downtown",
+      "areaName": "Global Gastronomy Street",
+      "cuisines": ["International", "Fusion", "Gourmet"],
+      "avgRating": 4.9,
+      "veg": true,
+      "deliveryTime": 55,
+      "isOpen": true,
+      "menu": ["Truffle Risotto", "Sushi Burrito", "Creme Brulee"]
+    }
+  ]

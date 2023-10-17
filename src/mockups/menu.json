@@ -1,0 +1,82 @@
+[
+    {
+      "name": "Spaghetti Carbonara",
+      "category": "Pasta",
+      "description": "Creamy pasta with bacon and cheese",
+      "imageUrl": "https://example.com/spaghetti.jpg",
+      "isVeg": false,
+      "price": 12.99
+    },
+    {
+      "name": "Margherita Pizza",
+      "category": "Pizza",
+      "description": "Classic pizza with tomato, mozzarella, and basil",
+      "imageUrl": "https://example.com/margherita.jpg",
+      "isVeg": true,
+      "price": 9.99
+    },
+    {
+      "name": "Caesar Salad",
+      "category": "Salad",
+      "description": "Fresh salad with romaine lettuce and Caesar dressing",
+      "imageUrl": "https://example.com/caesar-salad.jpg",
+      "isVeg": true,
+      "price": 7.99
+    },
+    {
+      "name": "Grilled Chicken Sandwich",
+      "category": "Sandwich",
+      "description": "Savory sandwich with grilled chicken and veggies",
+      "imageUrl": "https://example.com/chicken-sandwich.jpg",
+      "isVeg": false,
+      "price": 8.99
+    },
+    {
+      "name": "Mushroom Risotto",
+      "category": "Risotto",
+      "description": "Creamy rice dish with mushrooms and Parmesan",
+      "imageUrl": "https://example.com/mushroom-risotto.jpg",
+      "isVeg": true,
+      "price": 11.99
+    },
+    {
+      "name": "BBQ Pulled Pork Burger",
+      "category": "Burger",
+      "description": "Juicy burger with BBQ pulled pork and coleslaw",
+      "imageUrl": "https://example.com/bbq-burger.jpg",
+      "isVeg": false,
+      "price": 10.99
+    },
+    {
+      "name": "Greek Salad",
+      "category": "Salad",
+      "description": "Fresh Greek salad with feta cheese and olives",
+      "imageUrl": "https://example.com/greek-salad.jpg",
+      "isVeg": true,
+      "price": 6.99
+    },
+    {
+      "name": "Beef Tacos",
+      "category": "Tacos",
+      "description": "Tasty beef tacos with salsa and guacamole",
+      "imageUrl": "https://example.com/beef-tacos.jpg",
+      "isVeg": false,
+      "price": 9.49
+    },
+    {
+      "name": "Vegetable Stir-Fry",
+      "category": "Stir-Fry",
+      "description": "Fresh vegetable stir-fry with tofu and soy sauce",
+      "imageUrl": "https://example.com/stir-fry.jpg",
+      "isVeg": true,
+      "price": 8.49
+    },
+    {
+      "name": "Cheesecake",
+      "category": "Dessert",
+      "description": "Creamy cheesecake with fruit topping",
+      "imageUrl": "https://example.com/cheesecake.jpg",
+      "isVeg": true,
+      "price": 5.99
+    }
+  ]  
