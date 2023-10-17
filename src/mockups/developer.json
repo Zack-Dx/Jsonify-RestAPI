@@ -2,7 +2,7 @@
       {
         "name": "John Doe",
         "email": "john.doe@example.com",
-        "avatarUrl": "https://example.com/johndoe.jpg",
+        "avatarUrl": "https://images.unsplash.com/photo-1624298357597-fd92dfbec01d?auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHByb2ZpbGUlMjBpbWFnZSUyMHBlcnNvbiUyMGRldmVsb3BlcnxlbnwwfHwwfHx8MA%3D%3D&w=800",
         "description": "Full-stack developer with a passion for web development",
         "location": "New York, USA",
         "skills": ["JavaScript", "React", "Node.js", "SQL"],
@@ -12,7 +12,7 @@
       {
         "name": "Jane Smith",
         "email": "jane.smith@example.com",
-        "avatarUrl": "https://example.com/janesmith.jpg",
+        "avatarUrl": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cHJvZmlsZSUyMGltYWdlJTIwcGVyc29uJTIwZGV2ZWxvcGVyfGVufDB8fDB8fHww&w=800",
         "description": "Front-end developer specializing in responsive design",
         "location": "San Francisco, USA",
         "skills": ["HTML", "CSS", "JavaScript", "Vue.js"],
@@ -22,7 +22,7 @@
       {
         "name": "Mark Johnson",
         "email": "mark.johnson@example.com",
-        "avatarUrl": "https://example.com/markjohnson.jpg",
+        "avatarUrl": "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGF2YXRhciUyMG9mZmljZXxlbnwwfHwwfHx8MA%3D%3D&w=800",
         "description": "Mobile app developer with expertise in Android",
         "location": "London, UK",
         "skills": ["Java", "Kotlin", "Android Studio", "Firebase"],
@@ -32,7 +32,7 @@
       {
         "name": "Sarah Lee",
         "email": "sarah.lee@example.com",
-        "avatarUrl": "https://example.com/sarahlee.jpg",
+        "avatarUrl": "https://images.unsplash.com/photo-1507206130118-b5907f817163?auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fHByb2ZpbGUlMjBpbWFnZSUyMHBlcnNvbiUyMGRldmVsb3BlcnxlbnwwfHwwfHx8MA%3D%3D&w=800",
         "description": "Backend developer focusing on microservices",
         "location": "Toronto, Canada",
         "skills": ["Python", "Django", "Flask", "Docker"],
@@ -42,7 +42,7 @@
       {
         "name": "Michael Brown",
         "email": "michael.brown@example.com",
-        "avatarUrl": "https://example.com/michaelbrown.jpg",
+        "avatarUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8cHJvZmlsZSUyMHBpY3R1cmV8ZW58MHx8MHx8fDA%3D&w=800",
         "description": "Data scientist with expertise in machine learning",
         "location": "Los Angeles, USA",
         "skills": ["Python", "TensorFlow", "Scikit-Learn", "Data Analysis"],
@@ -52,7 +52,7 @@
       {
         "name": "Laura Taylor",
         "email": "laura.taylor@example.com",
-        "avatarUrl": "https://example.com/laurataylor.jpg",
+        "avatarUrl": "https://images.unsplash.com/photo-1619895862022-09114b41f16f?auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cHJvZmlsZSUyMHBpY3R1cmV8ZW58MHx8MHx8fDA%3D&w=800",
         "description": "UX/UI designer creating delightful user experiences",
         "location": "Chicago, USA",
         "skills": ["UI/UX Design", "Figma", "User Research", "Prototyping"],
@@ -62,7 +62,7 @@
       {
         "name": "Chris Wilson",
         "email": "chris.wilson@example.com",
-        "avatarUrl": "https://example.com/chriswilson.jpg",
+        "avatarUrl": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cHJvZmlsZSUyMHBpY3R1cmV8ZW58MHx8MHx8fDA%3D&w=800",
         "description": "DevOps engineer automating and optimizing workflows",
         "location": "Sydney, Australia",
         "skills": ["Docker", "Kubernetes", "Jenkins", "AWS"],
@@ -72,7 +72,7 @@
       {
         "name": "Megan Adams",
         "email": "megan.adams@example.com",
-        "avatarUrl": "https://example.com/meganadams.jpg",
+        "avatarUrl": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8cHJvZmlsZSUyMHBpY3R1cmV8ZW58MHx8MHx8fDA%3D&w=800",
         "description": "Game developer with a focus on Unity3D",
         "location": "Vancouver, Canada",
         "skills": ["Unity3D", "C#", "Game Design", "VR/AR"],
@@ -82,7 +82,7 @@
       {
         "name": "David Clark",
         "email": "david.clark@example.com",
-        "avatarUrl": "https://example.com/davidclark.jpg",
+        "avatarUrl": "https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cHJvZmlsZSUyMHBpY3R1cmV8ZW58MHx8MHx8fDA%3D&w=800",
         "description": "AI and machine learning researcher pushing the boundaries",
         "location": "Berlin, Germany",
         "skills": ["Machine Learning", "Python", "Deep Learning", "Research"],
@@ -92,7 +92,7 @@
       {
         "name": "Emily Martinez",
         "email": "emily.martinez@example.com",
-        "avatarUrl": "https://example.com/emilymartinez.jpg",
+        "avatarUrl": "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHByb2ZpbGUlMjBwaWN0dXJlfGVufDB8fDB8fHww&w=800",
         "description": "Front-end developer passionate about creating beautiful websites",
         "location": "Miami, USA",
         "skills": ["HTML", "CSS", "JavaScript", "React"],
