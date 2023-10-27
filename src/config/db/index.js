@@ -4,7 +4,7 @@ import logger from "../logger/index.js"
 
 const { MONGODB_URI } = Config
 
-const connectDB = async () => {
+export const connectDB = async () => {
   try {
     const connectionInstance = await mongoose.connect(MONGODB_URI)
     logger.info(
@@ -16,4 +16,11 @@ const connectDB = async () => {
   }
 }
 
-export default connectDB
+export const releaseConnection = async () => {
+  try {
+    await mongoose.connection.close();
+    logger.info('☘️  Release MongoDB Connection Successfully!')
+  } catch (error) {
+    logger.error("Release MongoDB connection error: ", error.message)
+  }
+}
